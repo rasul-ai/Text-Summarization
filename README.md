@@ -31,6 +31,10 @@ In conclusion, the CNN-DailyMail News Text Summarization dataset was chosen for 
 ## Model Selection for Text Summarization
 In this section, I will discuss the selection of a relevant Kaggle model for the CNN-DailyMail News Text Summarization dataset. The chosen Kaggle model is titled "Seq2Seq Enc Dec" which can be found [here](https://www.kaggle.com/code/mohamedaref000/seq2seq-enc-dec). This model implements an Encoder-Decoder architecture with Bidirectional LSTM units, a commonly used neural network architecture for sequence-to-sequence tasks such as text summarization.
 
+### Architecture:
+**Bidirectional LSTM Encoder-Decoder:**
+The use of bidirectional LSTMs allows the model to capture contextual information from both past and future tokens, enhancing its ability to understand the input text. This architecture is suitable for sequence-to-sequence tasks like text summarization. The image given below show an overview of the model architecture,
+
 ### Relevance and Adaptation
 1. Encoder-Decoder Architecture:\
 The Encoder-Decoder architecture is particularly suitable for sequence-to-sequence tasks like text summarization. The encoder processes the input sequence (news article) and encodes it into a fixed-size context vector, while the decoder generates the output sequence (summary) based on this context vector. This architecture is well-aligned with the requirements of summarizing news articles into concise summaries.
@@ -58,41 +62,43 @@ The selected Kaggle model based on the Encoder-Decoder architecture with Bidirec
 Based on the provided ROUGE scores, we can evaluate the capabilities and limitations of the chosen model as follows:
 
 ## Performance Metrics:
-### ROUGE-1 Score:
-
+**ROUGE-1 Score:**
+```
 Recall (R): 0.104
 Precision (P): 0.286
 F1-Score (F): 0.146
-ROUGE-2 Score:
-
+```
+**ROUGE-2 Score:**
+```
 Recall (R): 0.015
 Precision (P): 0.036
 F1-Score (F): 0.020
-ROUGE-L Score:
-
+```
+**ROUGE-L Score:**
+```
 Recall (R): 0.098
 Precision (P): 0.271
 F1-Score (F): 0.137
-Evaluation:
-Strengths:
-
-The model shows moderate performance in terms of ROUGE-1 and ROUGE-L scores, indicating its ability to generate summaries that contain overlapping n-grams with the reference summaries.
+```
+### Evaluation:
+The model shows moderate performance in terms of ROUGE-1 and ROUGE-L scores, indicating its ability to generate summaries that contain overlapping n-grams with the reference summaries.\
 It demonstrates relatively better precision compared to recall, suggesting that the generated summaries contain meaningful content, albeit with some brevity.
-Limitations:
 
-The model's performance, especially in terms of ROUGE-2 score, is relatively low. This indicates a challenge in capturing longer-range dependencies and phrases that span across multiple words.
+### Limitations:
+The model's performance, especially in terms of ROUGE-2 score, is relatively low. This indicates a challenge in capturing longer-range dependencies and phrases that span across multiple words.\
 There is a notable gap between the model's recall and precision scores, indicating room for improvement in terms of generating more comprehensive summaries without sacrificing precision.
-Architecture:
-Bidirectional LSTM Encoder-Decoder:
-The use of bidirectional LSTMs allows the model to capture contextual information from both past and future tokens, enhancing its ability to understand the input text. This architecture is suitable for sequence-to-sequence tasks like text summarization.
-Potential for Further Training or Fine-Tuning:
-Fine-Tuning:
 
-The model can be further fine-tuned by adjusting hyperparameters such as the number of LSTM units, dropout rates, and learning rates. Fine-tuning may help improve the model's performance by optimizing its ability to capture semantic meaning and generate accurate summaries.
-Attention Mechanism:
 
-Incorporating attention mechanisms within the model architecture could potentially improve its ability to focus on relevant parts of the input text when generating summaries, leading to better performance, especially in handling longer texts.
-Transfer Learning:
+### Potential for Further Training or Fine-Tuning:
+**1. Fine-Tuning:**\
+The model can be further fine-tuned by adjusting hyperparameters such as the number of LSTM units, dropout rates, and learning rates. Fine-tuning may help improve the    model's performance by optimizing its ability to capture semantic meaning and generate accurate summaries.
+    
+**2. Attention Mechanism:**\
+Incorporating attention mechanisms within the model architecture could potentially improve its ability to focus on relevant parts of the input text when generating       summaries, leading to better performance, especially in handling longer texts.
+    
+**3. Transfer Learning:**\
+Leveraging transfer learning techniques by initializing the model with weights pre-trained on a larger corpus or using domain-specific embeddings may help enhance
+the model's generalization and performance, particularly for summarizing news articles from the CNN-DailyMail dataset.
 
-Leveraging transfer learning techniques by initializing the model with weights pre-trained on a larger corpus or using domain-specific embeddings may help enhance the model's generalization and performance, particularly for summarizing news articles from the CNN-DailyMail dataset.
+    
 In conclusion, while the chosen model demonstrates moderate performance in terms of ROUGE scores, there is still room for improvement, especially in capturing longer-range dependencies and improving recall. Further fine-tuning, architectural enhancements, and transfer learning techniques can potentially address these limitations and enhance the model's capabilities for text summarization tasks.
