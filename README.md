@@ -34,7 +34,7 @@ In this section, I will discuss the selection of a relevant Kaggle model for the
 ### Architecture:
 **Bidirectional LSTM Encoder-Decoder:**
 The use of bidirectional LSTMs allows the model to capture contextual information from both past and future tokens, enhancing its ability to understand the input text. This architecture is suitable for sequence-to-sequence tasks like text summarization. The image given below show an overview of the model architecture,
-[model_architecture](https://github.com/rasul-ai/Text-Summarization/blob/4d9a0622f977d2ed82a5d0a09e51c17762fc7aaa/images/seq2seq_encoder_decoder.png)
+![model_architecture](https://github.com/rasul-ai/Text-Summarization/blob/4d9a0622f977d2ed82a5d0a09e51c17762fc7aaa/images/seq2seq_encoder_decoder.png)
 
 ### Relevance and Adaptation
 1. Encoder-Decoder Architecture:\
