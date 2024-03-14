@@ -3,9 +3,9 @@
 **Date:** [14.03.2024]
 
 ## Choosing a Kaggle Dataset for Large Language Model Training
-In this project, I have selected the CNN-DailyMail News Text Summarization dataset from Kaggle for training or fine-tuning a Large Language Model (LLM). In this file, I will provide an overview of why I have chosen this dataset and my considerations during the selection process.
+In this project, I have selected the [CNN-DailyMail News Text Summarization Dataset](https://www.kaggle.com/datasets/gowrishankarp/newspaper-text-summarization-cnn-dailymail/data) from Kaggle for training or fine-tuning a Large Language Model (LLM). In this file, I will provide an overview of why I have chosen this dataset and my considerations during the selection process.
 ### Dataset Overview
-The CNN-DailyMail dataset is one of the widely used benchmark for text summarization tasks. It consists of news articles from CNN and DailyMail along with human-generated summaries. Each article has a single highlight .The dataset is well-structured, containing a large number of articles across various topics. \
+The CNN-DailyMail dataset is one of the widely used benchmark for text summarization tasks. It consists of news articles from CNN and DailyMail along with human-generated summaries. Each article has a single highlight. The dataset is well-structured, containing a large number of articles across various topics. \
 When selecting this dataset, I have looked into several factors,
 
     1. Data Size:
@@ -26,7 +26,7 @@ When selecting this dataset, I have looked into several factors,
     5. Potential for Creative Exploration using Prompt Engineering:
        The nature of this dataset allows for creative exploration using Generative AI also.
 
-In conclusion, the CNN-DailyMail News Text Summarization dataset was chosen for its suitable size, relevance to real-world applications, and potential for prompt engineering experimentation. Additionally, highlighting its richness in content diversity, availability of ground truth summaries, established benchmark status, and the support it receives from the research community provides a solid foundation for training or fine-tuning Large Language Models for text summarization tasks.
+In conclusion, I have chosen the CNN-DailyMail News Text Summarization dataset for its suitable size, relevance to real-world applications, and potential for prompt engineering experimentation. Because of its  content diversity, availability of ground truth summaries, established benchmark status, it receives from the research community provides a solid foundation for training or fine-tuning Large Language Models for text summarization tasks.
 
 ## Model Selection for Text Summarization
 In this section, I will discuss the selection of a relevant Kaggle model for the CNN-DailyMail News Text Summarization dataset. The chosen Kaggle model is titled "Seq2Seq Enc Dec" which can be found [here](https://www.kaggle.com/code/mohamedaref000/seq2seq-enc-dec). This model implements an Encoder-Decoder architecture with Bidirectional LSTM units, a commonly used neural network architecture for sequence-to-sequence tasks such as text summarization.
@@ -58,11 +58,21 @@ To adapt the chosen model for the CNN-DailyMail dataset, several modifications a
     Employ efficient batching, distributed training, or techniques like curriculum learning to handle the diversity of
     article lengths and summary styles effectively, considering the large size of the CNN-DailyMail dataset.
 ```
-The selected Kaggle model based on the Encoder-Decoder architecture with Bidirectional LSTM units presents a promising framework for text summarization tasks, aligning well with the requirements of the CNN-DailyMail News Text Summarization dataset. With appropriate adaptation and fine-tuning, this model holds potential for generating high-quality summaries from news articles in the dataset.
+My chosen model is based on the Encoder-Decoder architecture with Bidirectional LSTM units which is essential for text summarization tasks, aligning well with the requirements of the CNN-DailyMail News Text Summarization dataset. With appropriate adaptation and fine-tuning, this model holds potential for generating high-quality summaries from news articles in the dataset.
 
-Based on the provided ROUGE scores, we can evaluate the capabilities and limitations of the chosen model as follows:
+## Model Training:
+The model is trained using the Keras library, which is a high-level neural networks API written in Python and capable of running on top of TensorFlow or other frameworks. The model is designed to solve a sequence prediction task, specifically using the sparse_categorical_crossentropy loss function and the RMSprop optimizer.
+### Hyperparameters:
+```
+Epochs: 20
+Batch Size: 128
+Loss Function: 'sparse_categorical_crossentropy'
+Optimizer: 'rmsprop'
+```
+Early Stopping: Monitors the validation loss and stops training if there's no improvement for a certain number of epochs.
 
 ## Performance Metrics:
+After training the model for 20 epochs, the model provides a metric for evaluation. The author of this model used ROUGE score for this purpose. ROUGE score measures the overlap between the generated summary and the reference(human generated) summary in terms of precision, recall, and F1 score. Here is the ROUGE score results,
 **ROUGE-1 Score:**
 ```
 Recall (R): 0.104
@@ -81,13 +91,15 @@ Recall (R): 0.098
 Precision (P): 0.271
 F1-Score (F): 0.137
 ```
-### Evaluation:
-The model shows moderate performance in terms of ROUGE-1 and ROUGE-L scores, indicating its ability to generate summaries that contain overlapping n-grams with the reference summaries.\
+### Model Evaluation:
+**Metrics:** The model shows moderate performance in terms of ROUGE-1(uni-grams) and ROUGE-L(Longest Common Subsequence) scores, indicating its ability to generate summaries that contain overlapping n-grams with the reference summaries.\
 It demonstrates relatively better precision compared to recall, suggesting that the generated summaries contain meaningful content, albeit with some brevity.
 
 ### Limitations:
-The model's performance, especially in terms of ROUGE-2 score, is relatively low. This indicates a challenge in capturing longer-range dependencies and phrases that span across multiple words.\
-There is a notable gap between the model's recall and precision scores, indicating room for improvement in terms of generating more comprehensive summaries without sacrificing precision.
+**1. Performance Metrics:** The model's performance, especially in terms of ROUGE-2(bigrams) score, is relatively low. This indicates a challenge in capturing longer-range dependencies and phrases that span across multiple words.\
+**2. Fixed Length Summaries:** This is determined by maxlen-summ parameter, may lead to incomplete or overly brief summaries for longer articles.\
+**3. Vocabulary Limitations:** The vocabulary is limited to most frequent words. Rare words or out of vocabulary words may not handled well.\
+**4. Lack of Attention Mechanism:** The model is very simple to capturing longer range dependencies. Attention based mechanism or more advanced mechanism such as transformer based might provide better result, specially handing long term dependency.
 
 
 ### Potential for Further Training or Fine-Tuning:
