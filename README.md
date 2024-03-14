@@ -37,13 +37,13 @@ The use of bidirectional LSTMs allows the model to capture contextual informatio
 ![model_architecture](https://github.com/rasul-ai/Text-Summarization/blob/6618d6faa6989606d368b428334b50b9499832fe/images/seq2seq_encoder_decoder.png)
 
 ### Relevance and Adaptation
-1. Encoder-Decoder Architecture:\
+**1. Encoder-Decoder Architecture:** \
 The Encoder-Decoder architecture is particularly suitable for sequence-to-sequence tasks like text summarization. The encoder processes the input sequence (news article) and encodes it into a fixed-size context vector, while the decoder generates the output sequence (summary) based on this context vector. This architecture is well-aligned with the requirements of summarizing news articles into concise summaries.
 
-2. Bidirectional LSTM Units:\
+**2. Bidirectional LSTM Units:** \
 The incorporation of Bidirectional LSTM units in both the encoder and decoder enhances the model's ability to capture contextual information from both past and future tokens in the input sequence. This bidirectional context modeling can lead to more informative and coherent summaries, especially in capturing the nuanced relationships between different parts of the news articles.
 
-3. Adaptation for CNN-DailyMail Dataset:\
+**3. Adaptation for CNN-DailyMail Dataset:** \
 To adapt the chosen model for the CNN-DailyMail dataset, several modifications and considerations can be made:
 ```
 • Data Preprocessing:
@@ -62,6 +62,7 @@ My chosen model is based on the Encoder-Decoder architecture with Bidirectional 
 
 ## Model Training:
 The model is trained using the Keras library, which is a high-level neural networks API written in Python and capable of running on top of TensorFlow or other frameworks. The model is designed to solve a sequence prediction task, specifically using the sparse_categorical_crossentropy loss function and the RMSprop optimizer.
+
 ### Hyperparameters Used:
 ```
 Epochs: 20
@@ -119,7 +120,8 @@ The model may overfit the training data, especially if the dataset is small or l
 
 
 ### Potential for Further Training or Fine-Tuning:
-Now, I am providing my understanding of how the model can be improved to summarize news articles. I think by applying these modifications the model might performed well.
+Now, I am providing my understanding of how the model can be improved to summarize news articles. I think by applying these modifications the model might performed well.\
+
 **1. Fine-Tuning:**\
 The model can be further fine-tuned by adjusting the following hyperparameters such as,
 ```
@@ -151,4 +153,4 @@ We can implement regularization techniques (Batch normalization, dropout) to mit
 **7. Evaluate with Multiple Metrics:** \
 We can access model performance using a variety of metrics beyond ROUGE, such as METEOR, BLEU, and human evaluation, to get a more comprehensive understanding of summarization quality.
     
-In conclusion, while the chosen model demonstrates moderate performance in terms of ROUGE scores, there is still room for improvement, especially in capturing longer-range dependencies and improving recall. Further fine-tuning, architectural enhancements, and transfer learning techniques can potentially address these limitations and enhance the model's capabilities for text summarization tasks.
+In conclusion, my chosen model demonstrates moderate performance in terms of ROUGE scores, I think there is still room for improvement especially in capturing longer-range dependencies and improving recall. I think further fine-tuning, architectural enhancements, and transfer learning techniques can potentially address these limitations and enhance the model's capabilities for text summarization tasks.
