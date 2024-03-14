@@ -62,14 +62,14 @@ My chosen model is based on the Encoder-Decoder architecture with Bidirectional 
 
 ## Model Training:
 The model is trained using the Keras library, which is a high-level neural networks API written in Python and capable of running on top of TensorFlow or other frameworks. The model is designed to solve a sequence prediction task, specifically using the sparse_categorical_crossentropy loss function and the RMSprop optimizer.
-### Hyperparameters:
+### Hyperparameters Used:
 ```
 Epochs: 20
 Batch Size: 128
 Loss Function: 'sparse_categorical_crossentropy'
 Optimizer: 'rmsprop'
 ```
-Early Stopping: Monitors the validation loss and stops training if there's no improvement for a certain number of epochs.
+**Early Stopping:** It monitors the validation loss and stops training if there's no improvement for a certain number of epochs.
 
 ## Performance Metrics:
 After training the model for 20 epochs, the model provides a metric for evaluation. The author of this model used ROUGE score for this purpose. ROUGE score measures the overlap between the generated summary and the reference(human generated) summary in terms of precision, recall, and F1 score. Here is the ROUGE score results,
@@ -119,6 +119,7 @@ The model may overfit the training data, especially if the dataset is small or l
 
 
 ### Potential for Further Training or Fine-Tuning:
+Now, I am providing my understanding of how the model can be improved to summarize news articles. I think by applying these modifications the model might performed well.
 **1. Fine-Tuning:**\
 The model can be further fine-tuned by adjusting the following hyperparameters such as,
 ```
@@ -132,22 +133,22 @@ The model can be further fine-tuned by adjusting the following hyperparameters s
 Fine-tuning may help improve the model's performance by optimizing its ability to capture semantic meaning and generate accurate summaries.
     
 **2. Attention Mechanism:**\
-Incorporating attention mechanisms within the model architecture could potentially improve its ability to focus on relevant parts of the input text when generating       summaries, leading to better performance, especially in handling longer texts.
+If we implement attention mechanisms within the model architecture, the model could potentially improve its ability to focus on relevant parts of the input text when generating summaries, leading to better performance, especially in handling longer texts.
     
 **3. Transfer Learning:**\
-Leveraging transfer learning techniques by initializing the model with weights pre-trained on a larger corpus or using domain-specific embeddings may help enhance
-the model's generalization and performance, particularly for summarizing news articles from the CNN-DailyMail dataset.
+If we apply transfer learning techniques by initializing the model with weights pre-trained on a larger corpus or using domain-specific embeddings, it will enhance
+the model's generalization and performance, particularly for summarizing news articles from the dataset.
 
 **4. Dynamic Length Summaries:** \
-Allow the model to generate dynamic-length summaries rather than fixed-length ones. Consider using techniques like beam search to explore multiple possible lengths.
+If we allow the model to generate dynamic-length summaries rather than fixed-length, I think the model can capture semantic meaning of the news articles and can generate well structured summaries.
 
 **5. Explore Transformer-Based Architectures:** \
-Consider using more advanced architectures like Transformer-based models (e.g., BERT, GPT) that have shown success in natural language processing tasks, including summarization.
+If we consider using more advanced architectures like Transformer-based models (BERT, GPT) that have shown success in natural language processing tasks, the model might performed well in summarization also.
 
 **6. Address Overfitting:** \
-Implement regularization techniques (Batch normalization, dropout) to mitigate overfitting. Monitor the model's performance on validation data during training and adjust hyperparameters accordingly.
+We can implement regularization techniques (Batch normalization, dropout) to mitigate overfitting and monitor the model's performance on validation data during training and adjust hyperparameters accordingly.
 
-**11. Evaluate with Multiple Metrics:** \
-Assess model performance using a variety of metrics beyond ROUGE, such as METEOR, BLEU, and human evaluation, to get a more comprehensive understanding of summarization quality.
+**7. Evaluate with Multiple Metrics:** \
+We can access model performance using a variety of metrics beyond ROUGE, such as METEOR, BLEU, and human evaluation, to get a more comprehensive understanding of summarization quality.
     
 In conclusion, while the chosen model demonstrates moderate performance in terms of ROUGE scores, there is still room for improvement, especially in capturing longer-range dependencies and improving recall. Further fine-tuning, architectural enhancements, and transfer learning techniques can potentially address these limitations and enhance the model's capabilities for text summarization tasks.
