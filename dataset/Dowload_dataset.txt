@@ -1,2 +1,2 @@
 Please check or download the dataset from the link given below. 
-[Dataset_link](https://www.kaggle.com/datasets/gowrishankarp/newspaper-text-summarization-cnn-dailymail/data)
+Dataset_link - https://www.kaggle.com/datasets/gowrishankarp/newspaper-text-summarization-cnn-dailymail/data)
