@@ -96,15 +96,40 @@ F1-Score (F): 0.137
 It demonstrates relatively better precision compared to recall, suggesting that the generated summaries contain meaningful content, albeit with some brevity.
 
 ### Limitations:
-**1. Performance Metrics:** The model's performance, especially in terms of ROUGE-2(bigrams) score, is relatively low. This indicates a challenge in capturing longer-range dependencies and phrases that span across multiple words.\
-**2. Fixed Length Summaries:** This is determined by maxlen-summ parameter, may lead to incomplete or overly brief summaries for longer articles.\
-**3. Vocabulary Limitations:** The vocabulary is limited to most frequent words. Rare words or out of vocabulary words may not handled well.\
-**4. Lack of Attention Mechanism:** The model is very simple to capturing longer range dependencies. Attention based mechanism or more advanced mechanism such as transformer based might provide better result, specially handing long term dependency.
+**1. Performance Metrics:** \
+The model's performance, especially in terms of ROUGE-2(bigrams) score, is relatively low. This indicates a challenge in capturing longer-range dependencies and phrases that span across multiple words.\
+
+**2. Fixed Length Summaries:** \
+This is determined by maxlen-summ parameter, may lead to incomplete or overly brief summaries for longer articles.\
+
+**3. Vocabulary Limitations:** \
+The vocabulary is limited to most frequent words. Rare words or out of vocabulary words may not handled well.\
+
+**4. Lack of Attention Mechanism:** \
+The model is very simple to capturing longer range dependencies. Attention based mechanism or more advanced mechanism such as transformer based might provide better result, specially handing long term dependency.\
+
+**5. Loss Graph:** \
+Plotting the loss graph over each epoch might be helpful in capturing whether the model is overfitted or not.
+
+**6. Handling Rare Words:** \
+The model mayy not effectively capture the importance of rare words in summarization process.
+
+**7. Overfitting:** \
+The model may overfit the training data, especially if the dataset is small or lacks diversity. This can lead to poor generalization on unseen data.
 
 
 ### Potential for Further Training or Fine-Tuning:
 **1. Fine-Tuning:**\
-The model can be further fine-tuned by adjusting hyperparameters such as the number of LSTM units, dropout rates, and learning rates. Fine-tuning may help improve the    model's performance by optimizing its ability to capture semantic meaning and generate accurate summaries.
+The model can be further fine-tuned by adjusting the following hyperparameters such as,
+```
+• The Number of LSTM units
+• Dropout
+• Learning Rates
+• Increase Number of Epochs
+• Using Regularization
+• Batch Normalization
+```
+Fine-tuning may help improve the model's performance by optimizing its ability to capture semantic meaning and generate accurate summaries.
     
 **2. Attention Mechanism:**\
 Incorporating attention mechanisms within the model architecture could potentially improve its ability to focus on relevant parts of the input text when generating       summaries, leading to better performance, especially in handling longer texts.
@@ -113,5 +138,16 @@ Incorporating attention mechanisms within the model architecture could potential
 Leveraging transfer learning techniques by initializing the model with weights pre-trained on a larger corpus or using domain-specific embeddings may help enhance
 the model's generalization and performance, particularly for summarizing news articles from the CNN-DailyMail dataset.
 
+**4. Dynamic Length Summaries:** \
+Allow the model to generate dynamic-length summaries rather than fixed-length ones. Consider using techniques like beam search to explore multiple possible lengths.
+
+**5. Explore Transformer-Based Architectures:** \
+Consider using more advanced architectures like Transformer-based models (e.g., BERT, GPT) that have shown success in natural language processing tasks, including summarization.
+
+**6. Address Overfitting:** \
+Implement regularization techniques (Batch normalization, dropout) to mitigate overfitting. Monitor the model's performance on validation data during training and adjust hyperparameters accordingly.
+
+**11. Evaluate with Multiple Metrics:** \
+Assess model performance using a variety of metrics beyond ROUGE, such as METEOR, BLEU, and human evaluation, to get a more comprehensive understanding of summarization quality.
     
 In conclusion, while the chosen model demonstrates moderate performance in terms of ROUGE scores, there is still room for improvement, especially in capturing longer-range dependencies and improving recall. Further fine-tuning, architectural enhancements, and transfer learning techniques can potentially address these limitations and enhance the model's capabilities for text summarization tasks.
