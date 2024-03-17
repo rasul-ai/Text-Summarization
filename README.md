@@ -101,16 +101,16 @@ It demonstrates relatively better precision compared to recall, suggesting that 
 
 ### Limitations:
 **1. Performance Metrics:** \
-The model's performance, especially in terms of ROUGE-2(bigrams) score, is relatively low. This indicates a challenge in capturing longer-range dependencies and phrases that span across multiple words.\
+The model's performance, especially in terms of ROUGE-2(bigrams) score, is relatively low. This indicates a challenge in capturing longer-range dependencies and phrases that span across multiple words.
 
 **2. Fixed Length Summaries:** \
-This is determined by maxlen-summ parameter, may lead to incomplete or overly brief summaries for longer articles.\
+This is determined by maxlen-summ parameter, may lead to incomplete or overly brief summaries for longer articles.
 
 **3. Vocabulary Limitations:** \
-The vocabulary is limited to most frequent words. Rare words or out of vocabulary words may not handled well.\
+The vocabulary is limited to most frequent words. Rare words or out of vocabulary words may not handled well.
 
 **4. Lack of Attention Mechanism:** \
-The model is very simple to capturing longer range dependencies. Attention based mechanism or more advanced mechanism such as transformer based might provide better result, specially handing long term dependency.\
+The model is very simple to capturing longer range dependencies. Attention based mechanism or more advanced mechanism such as transformer based might provide better result, specially handing long term dependency.
 
 **5. Loss Graph:** \
 Plotting the loss graph over each epoch might be helpful in capturing whether the model is overfitted or not.
