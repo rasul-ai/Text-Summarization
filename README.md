@@ -123,7 +123,7 @@ The model may overfit the training data, especially if the dataset is small or l
 
 
 ### Potential for Further Training or Fine-Tuning:
-Now, I am providing my understanding of how the model can be improved to summarize news articles. I think by applying these modifications the model might performed well.\
+Now, I am providing my understanding of how the model can be improved to summarize news articles. I think by applying these modifications the model might performed well.
 
 **1. Fine-Tuning:**\
 The model can be further fine-tuned by adjusting the following hyperparameters such as,
