@@ -1,5 +1,4 @@
 # Text-Summarization
-This repository is created for "Take Home Test for Machine Learning Researcher at BDMLI"
 
 **Author:** [Md Rasul Islam Bapary]  
 **Date:** [14.03.2024]
